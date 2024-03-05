@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\OrgaController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +19,52 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+
+
+//Auth
+
+Route::get('/register',[RegisterController::class,'index'])->name('register');
+Route::post('/register',[RegisterController::class,'orga'])->name('registerpr');
+Route::get('/registercl',[RegisterController::class,'cli'])->name('registercl');
+Route::post('/registercl',[RegisterController::class,'client'])->name('registercli');
+Route::get('/login',[RegisterController::class,'login'])->name('login');
+Route::post('/login', [SessionController::class, 'store'])->name('login.store');
+
+
+
+
+Route::get('/choose',[RegisterController::class,'choose'])->name('choose');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', [SessionController::class,'logout'])->name('logout');
+});
+
+
+
+
+
+
+//Organisateur Routes
+
+Route::middleware(['auth', 'role:organisateur'])->group(function () {
+    Route::controller(OrgaController::class)->group(function () {
+        Route::get('/dashboard_orga', 'dashboard')->name('orga.dashboard');
+        Route::get('{id}', 'show');
+    });
+});
+
+
+
+
+
+
+//Clients Routes
+
+Route::middleware(['auth', 'role:client'])->group(function () {
+    Route::controller(ClientController::class)->group(function () {
+        Route::get('/myReservation', 'myReser')->name('client.resers');
+        Route::get('{id}', 'show');
+    });
 });

@@ -21,7 +21,7 @@ class RegisterController extends Controller
         return view('auth.login');
     }
 
-    public function prop(Request $request){
+    public function orga(Request $request){
 
         // dd($request);
         $attributes = $request->validate([
@@ -48,9 +48,11 @@ class RegisterController extends Controller
         
         $user = User::create($attributes);
 
-        $user->assignRole('prop');
+        $user->assignRole('organisateur');
 
-        $user->prop()->create();
+        
+
+        $user->organisateur()->create();
         
         Auth::login($user);
 

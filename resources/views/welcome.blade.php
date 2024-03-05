@@ -12,7 +12,7 @@
             <nav class=" mt-28 w-5/6 fixed z-50">
                 <div class="navbar bg-base-300 rounded-3xl ">
                     <div class="flex-1">
-                      <a class="btn btn-ghost text-xl">Agency</a>
+                      <a class="btn btn-ghost text-xl">Evento</a>
                     </div>
                     <div class="flex-none gap-2">
                       <div class="form-control">
@@ -38,11 +38,11 @@
                           </li> --}}
                           <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                  @if (Auth::check())
-                 @if (Auth::user()->hasRole('prop'))
-                 <li><a href="{{route('dashprop')}}">Dashboard</a></li>
+                 @if (Auth::user()->hasRole('organisateur'))
+                 <li><a href="{{route('orga.dashboard')}}">Dashboard</a></li>
                  <li><a href="{{route('logout')}}">Logout</a></li>
                  @else
-                 <li><a href="{{route('myreserve')}}">My Reservations</a></li>
+                 <li><a href="{{route('myreserve')}}">Mes Reservations</a></li>
                  <li><a href="{{route('logout')}}">Logout</a></li>
                  @endif
                      
@@ -64,8 +64,8 @@
             <div class="hero-content flex-col lg:flex-row-reverse">
               <img src="/images/transparent-spring-balcony-flowers-house-with-balcony-flowers-colorful-house-with-paris-banner-and-flowers65d71d549c5a99.6610589517085965646404.png" class="max-w-sm rounded-lg shadow-2xl" />
               <div>
-                <h1 class="text-5xl font-bold">ImmoPlus-Trouvez Votre Maison de Rêve Avec Nous</h1>
-                <p class="py-6">Bienvenue sur ImmoPlus, votre partenaire de confiance dans la recherche de la maison parfaite. Que vous cherchiez à acheter, vendre ou louer, notre agence immobilière dévouée est là pour vous accompagner à chaque étape du processus.</p>
+                <h1 class="text-5xl font-bold">Evento-Reservew Votre Ticket de Rêve Avec Nous</h1>
+                <p class="py-6">Bienvenue sur Evento, votre partenaire de confiance dans la recherche de la event parfaite. Que vous cherchiez à acheter, vendre ou louer, notre agence immobilière dévouée est là pour vous accompagner à chaque étape du processus.</p>
                 <button class="btn btn-primary"><a href="{{route('choose')}}">Get Started</a></button>
               </div>
               
@@ -73,7 +73,7 @@
             
             
         </div>  
-        <div class="flex w-11/12 md:w-8/12 xl:w-6/12">
+        {{-- <div class="flex w-11/12 md:w-8/12 xl:w-6/12">
             <div class="flex rounded-md w-full">
                 <form action="#" method="GET" class="flex w-full">
                     <input type="text" name="search"
@@ -93,7 +93,7 @@
                 </form>
                 </button>
             </div>
-        </div>
+        </div> --}}
         <section class="py-12 bg-gray-900 text-gray-100 sm:py-12 lg:py-16">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
@@ -102,9 +102,87 @@
                         websites and webapps</p>
         
                 </div>
+
+
+
+
+
+                <div class="flex flex-col">
+                    <div class="p-6 bg-white border border-indigo-200 shadow-lg rounded-xl">
+                      <form action="" method="GET">
+                        <div class="relative flex items-center justify-between w-full mb-10 rounded-md">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="absolute block text-indigo-400 left-2 h-7 w-7">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+              
+                          <input type="name" name="search"
+                            class="w-full h-12 py-4 pl-12 pr-40 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-text focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="Search by product name or category" />
+                        </div>
+              
+                        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                          <div class="flex flex-col">
+                            <label for="start_date" class="text-sm font-medium text-indigo-900">Transaction Start Date</label>
+                            <input type="date" id="start_date"
+                              class="block w-full px-2 py-2 mt-2 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-pointer focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                          </div>
+              
+                          <div class="flex flex-col">
+                            <label for="end_date" class="text-sm font-medium text-indigo-900">Transaction End Date</label>
+                            <input type="date" id="end_date"
+                              class="block w-full px-2 py-2 mt-2 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-pointer focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                          </div>
+              
+                          <div class="flex flex-col">
+                            <label for="brand" class="text-sm font-medium text-indigo-900">Brand</label>
+                            <select id="brand"
+                              class="block w-full px-2 py-2 mt-2 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-pointer focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                              <option>Adidas</option>
+                              <option>Nike</option>
+                              <option>Rebook</option>
+                              <option>Puma</option>
+                              <option>Vans</option>
+                              <option>Converse</option>
+                            </select>
+                          </div>
+                        </div>
+              
+                        <div class="grid justify-start w-full grid-cols-2 mt-8 space-x-4 md:flex">
+                          <button
+                            class="flex items-center px-8 py-2 font-medium text-indigo-700 bg-indigo-100 rounded-lg outline-none hover:opacity-80 focus:ring">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-4 h-4 mr-2">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+                            Reset
+                          </button>
+                          <button
+                            class="flex items-center px-8 py-2 font-medium text-white bg-indigo-600 rounded-lg outline-none hover:opacity-80 focus:ring">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-4 h-4 mr-2">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                            </svg>
+                            Search
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+                
                 <div
                     class="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20 sm:text-left">
-                    @foreach ($biens as $bien)
+                    {{-- @foreach ($biens as $bien)
                         
                     <div class="relative">
                         <div class="absolute -inset-1">
@@ -120,7 +198,7 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @endforeach --}}
                     {{-- <div class="overflow-hidden bg-white shadow-md rounded-xl">
                         <div class="p-9"><svg class="w-12 h-12 mx-auto text-gray-400 sm:mx-0" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
