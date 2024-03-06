@@ -25,43 +25,36 @@
       <div class=" w-2/12 mr-6 asidd">
         <div
             class="bg-white flex flex-col content-stretch justify-evenly rounded-xl shadow-lg mb-6 px-6 py-16 side h-5/6 gap-5">
-            <a href="admin/dashboard"
+            <a href="{{route('admin.dash')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">dashboard</span>
                 <p class="admin-aside">Dashboard</p>
 
             </a>
-            <a href="admin/categories"
+            <a href="{{route('admin.cats')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">tune</span>
                 <p class="admin-aside">Categories</p>
 
             </a>
-            <a href="admin/tags"
+            <a href="{{route('admin.events')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">file_copy</span>
-                <p class="admin-aside">Tags</p>
+                <p class="admin-aside">Events</p>
 
 
             </a>
-            <a href="admin/wikis"
-                class="inline-block text-gray-600 hover:text-black my-4 w-full">
-                <span class="material-icons-outlined float-left pr-2">file_copy</span>
-                <p class="admin-aside"> Wiki's</p>
-
-
-            </a>
-            <a href="admin/users"
+            <a href="{{route('admin.users')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">face</span>
-                <p class="admin-aside"> Users</p>
+                <p class="admin-aside">Users</p>
 
 
             </a>
-            <a href="auth/logout"
+            <a href="{{route('logout')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">power_settings_new</span>
-                <p class="admin-aside"> Logout</p>
+                <p class="admin-aside">Logout</p>
 
 
             </a>

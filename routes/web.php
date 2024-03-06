@@ -72,7 +72,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin_dash', 'dashboard')->name('admin.dash');
         Route::get('/admin_users', 'users')->name('admin.users');
-        Route::get('/admin_cates', 'categories')->name('admin.categories');
+        Route::get('/admin_cates', 'categories')->name('admin.cats');
         Route::get('/admin_events', 'events')->name('admin.events');
     });
 });
