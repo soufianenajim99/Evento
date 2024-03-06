@@ -42,7 +42,7 @@
                  <li><a href="{{route('orga.dashboard')}}">Dashboard</a></li>
                  <li><a href="{{route('logout')}}">Logout</a></li>
                  @else
-                 <li><a href="{{route('myreserve')}}">Mes Reservations</a></li>
+                 <li><a href="{{route('client.resers')}}">Mes Reservations</a></li>
                  <li><a href="{{route('logout')}}">Logout</a></li>
                  @endif
                      
@@ -97,10 +97,9 @@
         <section class="py-12 bg-gray-900 text-gray-100 sm:py-12 lg:py-16">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
-                    <h2 class="text-3xl font-bold leading-tight text-gray-50 sm:text-4xl xl:text-5xl mb-6">Available Houses Today!</h2>
+                    <h2 class="text-3xl font-bold leading-tight text-gray-50 sm:text-4xl xl:text-5xl mb-6">Best Events To Attend Today!</h2>
                     <p class="mb-4">We are creating a tool that helps you be more productive and efficient when building
                         websites and webapps</p>
-        
                 </div>
 
 
