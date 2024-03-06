@@ -8,6 +8,7 @@ use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
+
     public function index(){
         return view('auth.login');
     }
@@ -32,10 +33,13 @@ class SessionController extends Controller
         $redirect = 'login';
         switch (true) {
             case auth()->user()->hasRole('organisateur'):
-                $redirect = 'dashboard_orga';
+                $redirect = 'orga.dash';
+                break;
+            case auth()->user()->hasRole('admin'):
+                $redirect = 'admin.dash';
                 break;
             case auth()->user()->hasRole('client'):
-                $redirect = '/';
+                $redirect = 'client.resers';
                 break;
         }
 

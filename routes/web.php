@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\OrgaController;
 use App\Http\Controllers\RegisterController;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
 
@@ -50,13 +51,9 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth', 'role:organisateur'])->group(function () {
     Route::controller(OrgaController::class)->group(function () {
-        Route::get('/dashboard_orga', 'dashboard')->name('orga.dashboard');
-        Route::get('{id}', 'show');
+        Route::get('/dashboard_orga', 'dashboard')->name('orga.dash');
     });
 });
-
-
-
 
 
 
@@ -65,6 +62,17 @@ Route::middleware(['auth', 'role:organisateur'])->group(function () {
 Route::middleware(['auth', 'role:client'])->group(function () {
     Route::controller(ClientController::class)->group(function () {
         Route::get('/myReservation', 'myReser')->name('client.resers');
-        Route::get('{id}', 'show');
+    });
+});
+
+
+//Admin Routes
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin_dash', 'dashboard')->name('admin.dash');
+        Route::get('/admin_users', 'users')->name('admin.users');
+        Route::get('/admin_cates', 'categories')->name('admin.categories');
+        Route::get('/admin_events', 'events')->name('admin.events');
     });
 });

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory()->create([
+                'email' => 'client@gmail.com',
+                'picture' => 'kisspng-computer-icons-google-account-user-profile-iconfin-png-icons-download-profile-5ab0301e32cb90.1777380215214960942081.png'
+            ])
         ];
     }
 }
