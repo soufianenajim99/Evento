@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('nbrPlacesDispo');
             $table->integer('price');
             $table->text('picture');
+            $table->text('lieu');
             $table->enum('Validation_type', ['automatique', 'manuel']);
             $table->dateTime('validated_at');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();

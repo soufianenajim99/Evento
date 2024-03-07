@@ -16,6 +16,7 @@ class Event extends Model
         'nbrPlacesDispo',
         'price',
         'picture',
+        'lieu',
         'typeVali',
         'validated_at',
         'user_id',

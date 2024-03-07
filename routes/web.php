@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\OrgaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
@@ -53,7 +54,15 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'role:organisateur'])->group(function () {
     Route::controller(OrgaController::class)->group(function () {
         Route::get('/dashboard_orga', 'dashboard')->name('orga.dash');
+        Route::get('/orga_settings', 'settings')->name('orga.sett');
+        Route::get('/orga_events', 'events')->name('orga.events');
     });
+
+    //Events
+
+    Route::resource('/event',EventController::class);
+
+
 });
 
 
