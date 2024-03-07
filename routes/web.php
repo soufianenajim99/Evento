@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\OrgaController;
 use App\Http\Controllers\RegisterController;
@@ -71,8 +72,21 @@ Route::middleware(['auth', 'role:client'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin_dash', 'dashboard')->name('admin.dash');
+        //users
         Route::get('/admin_users', 'users')->name('admin.users');
+        Route::get('/admin_users_desactivate/{id}', 'desactivateUser')->name('admin.users.desa');
+        Route::get('/admin_users_activate/{id}', 'activateUser')->name('admin.users.acti');
+        //categories
         Route::get('/admin_cates', 'categories')->name('admin.cats');
+
         Route::get('/admin_events', 'events')->name('admin.events');
     });
+
+    //categories
+    Route::resource('/categorie',CategorieController::class);
+
+
+
+
+
 });
