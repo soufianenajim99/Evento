@@ -14,6 +14,9 @@ class Categorie extends Model
         'description'
     ];
 
+    public function event(){
+        return $this->hasMany(Event::class);
+    }
 
 
 

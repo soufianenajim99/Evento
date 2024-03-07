@@ -57,4 +57,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Client::class);
     }
+
+    public function event(){
+        return $this->hasMany(Event::class);
+    }
+
+    
 }

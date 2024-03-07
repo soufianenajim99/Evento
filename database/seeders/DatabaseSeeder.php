@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use App\Models\Categorie;
 use App\Models\Client;
+use App\Models\Event;
 use App\Models\Organisateur;
 use Database\Factories\AdminFactory;
 use Illuminate\Database\Seeder;
@@ -32,7 +33,8 @@ class DatabaseSeeder extends Seeder
         $orga = Organisateur::factory()->create();
         $orga->user()->first()->assignRole('organisateur');
 
-        $cats = Categorie::factory(10)->create();
+        Categorie::factory(10)->create();
+        Event::factory(10)->create();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

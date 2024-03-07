@@ -25,14 +25,8 @@
             </div>
           </div>
           <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-            <li>
-              <a class="justify-between">
-                Profile
-                <span class="badge">New</span>
-              </a>
-            </li>
-            <li><a>Settings</a></li>
-            <li><a>Logout</a></li>
+            <li><a href="{{route('orga.setting')}}">Settings</a></li>
+            <li><a href="{{route('logout')}}">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -42,30 +36,23 @@
       <div class=" w-2/12 mr-6 asidd">
         <div
             class="bg-white flex flex-col content-stretch justify-evenly rounded-xl shadow-lg mb-6 px-6 py-16 side h-5/6 gap-5">
-            <a href="{{route('admin.dash')}}"
+            <a href="{{route('orga.dash')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">dashboard</span>
                 <p class="admin-aside">Dashboard</p>
 
             </a>
-            <a href="{{route('admin.cats')}}"
-                class="inline-block text-gray-600 hover:text-black my-4 w-full">
-                <span class="material-icons-outlined float-left pr-2">tune</span>
-                <p class="admin-aside">Categories</p>
-
-            </a>
-            <a href="{{route('admin.events')}}"
+            <a href="{{route('orga.events')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">file_copy</span>
                 <p class="admin-aside">Events</p>
 
 
             </a>
-            <a href="{{route('admin.users')}}"
+            <a href="{{route('orga.setting')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">face</span>
-                <p class="admin-aside">Users</p>
-
+                <p class="admin-aside">setting</p>
 
             </a>
             <a href="{{route('logout')}}"
