@@ -32,10 +32,10 @@
       </div>
     </div>
     
-    <div class="flex flex-row pt-10 px-10 pb-4">
-      <div class=" w-2/12 mr-6 asidd">
+    <div class="flex flex-row pt-4 px-10 pb-4">
+      <div class=" w-2/12 mr-6 asidd pt-8">
         <div
-            class="bg-white flex flex-col content-stretch justify-evenly rounded-xl shadow-lg mb-6 px-6 py-16 side h-5/6 gap-5">
+            class="bg-white flex flex-col content-stretch justify-evenly rounded-xl shadow-lg mb-6 px-6 py-8 side h-5/6 gap-5">
             <a href="{{route('orga.dash')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
                 <span class="material-icons-outlined float-left pr-2">dashboard</span>
@@ -82,5 +82,5 @@
 
 </body>
             
-
+<script src="/js/main.js"></script>
 </html>
