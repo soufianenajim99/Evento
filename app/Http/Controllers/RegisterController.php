@@ -28,7 +28,7 @@ class RegisterController extends Controller
             'username' => 'required|min:4',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
-            'image' => 'required'
+            'image' => 'required|image'
         ], [
 
             'username.min' => 'The name must have more than 3 characters.',

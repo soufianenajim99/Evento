@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('picture');
             $table->text('lieu');
             $table->enum('Validation_type', ['automatique', 'manuel']);
-            $table->dateTime('validated_at');
+            $table->dateTime('validated_at')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

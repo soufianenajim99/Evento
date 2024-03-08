@@ -87,8 +87,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin_users_activate/{id}', 'activateUser')->name('admin.users.acti');
         //categories
         Route::get('/admin_cates', 'categories')->name('admin.cats');
-
+        //events
         Route::get('/admin_events', 'events')->name('admin.events');
+        Route::get('/admin_event/{id}', 'showevents')->name('admin.epage');
+
+        
+        Route::get('/admin_event_val/{id}', 'validateEvent')->name('admin.eventval');
+        Route::get('/admin_event_ref/{id}', 'rejectEvent')->name('admin.eventref');
+
+
     });
 
     //categories

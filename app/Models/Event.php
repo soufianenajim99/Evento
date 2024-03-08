@@ -17,11 +17,15 @@ class Event extends Model
         'price',
         'picture',
         'lieu',
-        'typeVali',
-        'validated_at',
+        'Validation_type',
         'user_id',
         'category_id'
     ];
+
+    protected $attributes = [
+        'validated_at'=> null
+    ];
+    protected $dates = ['created_at', 'updated_at', 'validated_at'];
 
     public function category() {
         return $this->belongsTo(Categorie::class);

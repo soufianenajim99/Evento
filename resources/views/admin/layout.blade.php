@@ -56,7 +56,12 @@
             </a>
             <a href="{{route('admin.events')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
-                <span class="material-icons-outlined float-left pr-2">file_copy</span>
+                <div class="indicator">
+                  <span class="indicator-item badge badge-secondary">{{$count}}</span> 
+                  <span class="material-icons-outlined float-left pr-2">file_copy</span>
+
+                </div>
+
                 <p class="admin-aside">Events</p>
 
 
