@@ -7,6 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\OrgaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $events=Event::take(6)->get();
+    return view('welcome',[
+        'events'=>$events
+    ]);
 })->name('home');
 
 

@@ -26,7 +26,7 @@ class EventFactory extends Factory
             'date'=>fake()->dateTimeBetween(now(),'+30 day'),
             'nbrPlacesDispo'=>fake()->numberBetween(1000,3000),
             'price'=>fake()->numberBetween(50,1000),
-            'lieu'=>fake()->city(),
+            'lieu'=>fake()->address(),
             'picture'=>'Covening-Asia-Pacific-Sydney-1.jpg',
             'Validation_type'=>'automatique',
             'validated_at'=>fake()->dateTimeBetween(now(),'+30 day'),

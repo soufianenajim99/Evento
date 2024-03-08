@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,7 +64,12 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $events= Event::findOrFail($id);
+        $cats= Categorie::all();
+        return view("organisateur.editevent",[
+            'event'=> $events,
+            'cats'=>$cats
+        ]);
     }
 
     /**
@@ -71,7 +77,31 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'category_id' => 'required',
+            'date' => 'required',
+            'price' => 'required',
+            'nbrPlacesDispo' => 'required',
+            'description' => 'required',
+            'lieu' => 'required',
+            'Validation_type' => 'required',
+            'picture' => 'required|image'
+        ]);
+
+        $event= Event::findOrFail($id);
+        $event->name = strip_tags($request->input('name'));
+        $event->category_id = strip_tags($request->input('category_id'));
+        $event->date = strip_tags($request->input('date'));
+        $event->price = strip_tags($request->input('price'));
+        $event->nbrPlacesDispo = strip_tags($request->input('nbrPlacesDispo'));
+        $event->description = strip_tags($request->input('description'));
+        $event->lieu = strip_tags($request->input('lieu'));
+        $event->Validation_type = strip_tags($request->input('Validation_type'));
+        $event->picture = strip_tags($request->input('picture'));
+        $event->description = strip_tags($request->input('desc'));
+        $event->save();
+        return redirect()->route('orga.events');
     }
 
     /**
@@ -79,6 +109,8 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+         $event = Event::findOrFail($id);
+        $event->delete();
+        return redirect()->route('orga.events');
     }
 }
