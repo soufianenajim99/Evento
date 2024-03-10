@@ -9,6 +9,7 @@ use App\Models\Categorie;
 use App\Models\Client;
 use App\Models\Event;
 use App\Models\Organisateur;
+use App\Models\Reservation;
 use Database\Factories\AdminFactory;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -35,6 +36,8 @@ class DatabaseSeeder extends Seeder
 
         Categorie::factory(10)->create();
         Event::factory(10)->create();
+
+        Reservation::factory(5)->create();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

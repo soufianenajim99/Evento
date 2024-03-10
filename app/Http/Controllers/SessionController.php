@@ -39,7 +39,7 @@ class SessionController extends Controller
                 $redirect = 'admin.dash';
                 break;
             case auth()->user()->hasRole('client'):
-                $redirect = 'client.resers';
+                $redirect = 'home';
                 break;
         }
 

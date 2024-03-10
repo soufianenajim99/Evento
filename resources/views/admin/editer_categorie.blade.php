@@ -2,7 +2,6 @@
 @section('content')
 
 <form class="max-w-md mx-auto p-6 bg-white border rounded-lg shadow-lg" action="{{route('categorie.update',['categorie'=>$cate->id])}}"  method="POST">
-
     @csrf
     @method('PUT')
     <h2 class="text-2xl font-bold mb-6">Editer Categorie</h2>

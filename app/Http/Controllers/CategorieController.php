@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
+
+    protected $count;
+    public function __construct() 
+{
+    $this->count = Event::whereNull('validated_at')->count();
+}   
+
     public function index()
     {
         
@@ -51,7 +57,8 @@ class CategorieController extends Controller
     {
         $cate= Categorie::findOrFail($id);
         return view("admin.editer_categorie",[
-            'cate'=> $cate
+            'cate'=> $cate,
+            'count'=>$this->count
         ]);
     }
 

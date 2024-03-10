@@ -76,6 +76,8 @@ Route::middleware(['auth', 'role:organisateur'])->group(function () {
 Route::middleware(['auth', 'role:client'])->group(function () {
     Route::controller(ClientController::class)->group(function () {
         Route::get('/myReservation', 'myReser')->name('client.resers');
+        Route::get('/eventpage/{id}', 'eventpage')->name('client.eventpage');
+        Route::get('/events', 'events')->name('client.events');
     });
 });
 

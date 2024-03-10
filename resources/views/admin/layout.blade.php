@@ -12,7 +12,7 @@
   <div class="min-h-screen">
     <div class="navbar bg-white py-4">
       <div class="flex-1">
-        <div class="font-bold text-orange-600 text-xl px-6">Evento</div>
+        <div class="font-bold text-orange-600 text-xl px-6"><a  href="{{route('home')}}">Evento</a>  </div>
       </div>
       <div class="flex-none gap-2 px-6">
         <div class="form-control">
