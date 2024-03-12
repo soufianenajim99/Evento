@@ -50,7 +50,10 @@
             </a>
             <a href="{{route('orga.sett')}}"
                 class="inline-block text-gray-600 hover:text-black my-4 w-full">
-                <span class="material-icons-outlined float-left pr-2">face</span>
+                <div class="indicator">
+                  <span class="indicator-item badge badge-secondary">{{$count}}</span> 
+                  <span class="material-icons-outlined float-left pr-2">face</span>
+                </div>
                 <p class="admin-aside">setting</p>
 
             </a>

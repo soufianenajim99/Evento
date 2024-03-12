@@ -4,8 +4,8 @@ use Carbon\Carbon;
 @extends('client.layout')
 @section('content')
 <section class="bg-[#C7CCD6]">
-    <div class="flex flex-wrap bg-white rounded-2xl items-center">
-        <div class="w-full mb-10 sm:w-8/12">
+    <div class="flex flex-wrap bg-white rounded-2xl w-screen items-center justify-center">
+        <div class="mb-10 sm:w-8/12">
             <div class="container h-full p-10 mx-auto">
             <div class="flex flex-col gap-3 justify-center items-center">
                 
@@ -70,21 +70,35 @@ use Carbon\Carbon;
                                 </tbody>
                             </table>
                         </div>
+                        @if ($event->nbrPlacesDispo == 0)
                         <button
-                            class="flex items-center justify-center w-full px-4 py-3 mt-6 text-base font-semibold bg-blue-500 rounded-lg sm:mx-4 text-gray-50 hover:bg-blue-900">
-                            Reservez ce Evenement
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-4 h-4 ml-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                            </svg>
+                        disabled
+                        class="btn btn-success flex items-center justify-center w-full px-4 py-3 mt-6 text-base font-semibold rounded-lg sm:mx-4 ">
+                        Pas de Places Disponibles pour cet evenement
+                       
 
-                        </button>
+                    </button>
+                        @else
+                            
+                        <a href="{{route('client.reserve',['id'=>$event['id']])}}">
+                        
+                            <button
+                                class="flex items-center justify-center w-full px-4 py-3 mt-6 text-base font-semibold bg-blue-500 rounded-lg sm:mx-4 text-gray-50 hover:bg-blue-900">
+                                Reservez ce Evenement
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-4 h-4 ml-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+    
+                            </button>
+                        </a>
+                        @endif
                     </div>
                 </header>
             </div>
         </div>
 
-        <div class="w-full p-4 sm:w-4/12">
+        <div class="p-4 sm:w-4/12">
             <div class=" pb-6 bg-blue-50 rounded-xl sm:pb-20">
                 <div class="pt-16 text-center">
                     <span class="text-base font-semibold text-gray-600">Total amount</span>

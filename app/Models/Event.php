@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Event extends Model
 {
@@ -33,4 +34,10 @@ class Event extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function client():BelongsToMany
+    {
+        return $this->belongsToMany(Client::class,'reservation')->withPivot(['id'])->as('reservation')->using(Reservation::class)->withTimestamps();
+    }
+
 }

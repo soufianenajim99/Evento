@@ -12,7 +12,14 @@ use Carbon\Carbon;
                 </div>
                 <div class="flex-none gap-2">
                   <div class="form-control">
-                    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                    <form action="" method="get">
+                      <label class="input input-bordered flex items-center gap-2">
+                        <input type="text" class="grow" placeholder="Search" name="search" />
+                        <button type="submit">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" /></svg>
+                        </button>
+                      </label>
+                    </form>
                   </div>
                   <div class="dropdown dropdown-end">
                     <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
@@ -50,94 +57,75 @@ use Carbon\Carbon;
         </nav>
     </div> 
 
-    <section class="py-12 mt-28 bg-gray-900 text-gray-100 sm:py-12 lg:py-16">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
-                <h2 class="text-3xl font-bold leading-tight text-gray-50 sm:text-4xl xl:text-5xl mb-6">Best Events To Attend Today!</h2>
-                <p class="mb-4">We are creating a tool that helps you be more productive and efficient when building
-                    websites and webapps</p>
+    <section class="py-12 mt-36 bg-gray-900 text-gray-100 sm:py-12 lg:py-16">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
+              <h2 class="text-3xl font-bold leading-tight text-gray-50 sm:text-4xl xl:text-5xl mb-6">Best Events To Attend Today!</h2>
+              <p class="mb-4">We are creating a tool that helps you be more productive and efficient when building
+                  websites and webapps</p>
+          </div>
+
+
+          <div class="flex flex-col">
+              <div data-theme="cupcake" class="p-6  border-indigo-200 shadow-lg rounded-xl">
+                <form action="" method="GET">
+                  
+                  <div class="relative flex items-center justify-between w-full mb-10 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="absolute block text-indigo-400 left-2 h-7 w-7">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+        
+                    <input type="name" name="search"
+                      class="w-full h-12 py-4 pl-12 pr-40 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-text focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                      placeholder="Search by event name" value="{{request('search')}}" />
+                  </div>
+        
+
+                    
+        
+                    <div class="flex flex-col w-full items-center justify-center">
+                      <div class=" w-2/4">
+                        <label for="cat" class="text-sm font-medium text-indigo-900">Category</label>
+                        <select id="cat"
+                        name="category"
+                          class="block w-full px-2 py-2 mt-2 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-pointer focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                          <option value="" selected>Select A category</option>
+                          @foreach ($cats as $cat)
+                          <option value="{{$cat->id}}">{{$cat->name}}</option>
+                         @endforeach
+                        </select>
+
+                      </div>
+                    </div>
+             
+        
+                  <div class="grid justify-start w-full grid-cols-2 mt-8 space-x-4 md:flex">
+                    <button
+                      class="flex items-center px-8 py-2 font-medium text-white bg-indigo-600 rounded-lg outline-none hover:opacity-80 focus:ring">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-4 h-4 mr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                      </svg>
+                      Search
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
 
 
 
 
 
-            <div class="flex flex-col">
-                <div data-theme="cupcake" class="p-6  border-indigo-200 shadow-lg rounded-xl">
-                  <form action="" method="GET">
-                    <div class="relative flex items-center justify-between w-full mb-10 rounded-md">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="absolute block text-indigo-400 left-2 h-7 w-7">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+
+
           
-                      <input type="name" name="search"
-                        class="w-full h-12 py-4 pl-12 pr-40 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-text focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        placeholder="Search by product name or category" />
-                    </div>
-          
-                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                      <div class="flex flex-col">
-                        <label for="start_date" class="text-sm font-medium text-indigo-900">Transaction Start Date</label>
-                        <input type="date" id="start_date"
-                          class="block w-full px-2 py-2 mt-2 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-pointer focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
-                      </div>
-          
-                      <div class="flex flex-col">
-                        <label for="end_date" class="text-sm font-medium text-indigo-900">Transaction End Date</label>
-                        <input type="date" id="end_date"
-                          class="block w-full px-2 py-2 mt-2 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-pointer focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
-                      </div>
-          
-                      <div class="flex flex-col">
-                        <label for="brand" class="text-sm font-medium text-indigo-900">Brand</label>
-                        <select id="brand"
-                          class="block w-full px-2 py-2 mt-2 bg-indigo-100 border border-indigo-100 rounded-md shadow-sm outline-none cursor-pointer focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                          <option>Adidas</option>
-                          <option>Nike</option>
-                          <option>Rebook</option>
-                          <option>Puma</option>
-                          <option>Vans</option>
-                          <option>Converse</option>
-                        </select>
-                      </div>
-                    </div>
-          
-                    <div class="grid justify-start w-full grid-cols-2 mt-8 space-x-4 md:flex">
-                      <button
-                        class="flex items-center px-8 py-2 font-medium text-indigo-700 bg-indigo-100 rounded-lg outline-none hover:opacity-80 focus:ring">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-4 h-4 mr-2">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                        </svg>
-                        Reset
-                      </button>
-                      <button
-                        class="flex items-center px-8 py-2 font-medium text-white bg-indigo-600 rounded-lg outline-none hover:opacity-80 focus:ring">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-4 h-4 mr-2">
-                          <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                        </svg>
-                        Search
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-
-
-
-
-
-
-            
-           
-        </div>
-    </section>
+         
+      </div>
+  </section>
   
 
 
@@ -224,7 +212,7 @@ use Carbon\Carbon;
     </div>
   </nav> 
   <aside>
-    <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+    <p>Copyright © 2024 - All right reserved by Evento Ltd</p>
   </aside>
 </footer>
 @endsection

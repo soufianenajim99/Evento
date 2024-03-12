@@ -24,7 +24,7 @@ class ReservationFactory extends Factory
     {
        
         return [
-            'user_id' => Client::first()->user->id,
+            'client_id' => Client::first()->id,
             'event_id'=> Event::factory()->create(),
             'validated_at' => Carbon::now()
         ];
