@@ -8,20 +8,20 @@
 
   <div class="bg-no-repeat bg-white border border-black-300 rounded-xl w-5/12 ml-2 p-6"
       style="background-image: url(https://previews.dropbox.com/p/thumb/AAuwpqWfUgs9aC5lRoM_f-yi7OPV4txbpW1makBEj5l21sDbEGYsrC9sb6bwUFXTSsekeka5xb7_IHCdyM4p9XCUaoUjpaTSlKK99S_k4L5PIspjqKkiWoaUYiAeQIdnaUvZJlgAGVUEJoy-1PA9i6Jj0GHQTrF_h9MVEnCyPQ-kg4_p7kZ8Yk0TMTL7XDx4jGJFkz75geOdOklKT3GqY9U9JtxxvRRyo1Un8hOObbWQBS1eYE-MowAI5rNqHCE_e-44yXKY6AKJocLPXz_U4xp87K4mVGehFKC6dgk_i5Ur7gspuD7gRBDvd0sanJ9Ybr_6s2hZhrpad-2WFwWqSNkh/p.png?fv_content=true&size_mode=5); background-position: 100% 40%;">
-      <p class="text-5xl text-indigo-900">Tags<br><strong></strong></p>
+      <p class="text-5xl text-indigo-900">Categories<br><strong>{{$cats}}</strong></p>
 
 
   </div>
 </div>
 <div class="flex flex-row h-64 mt-6">
   <div class="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
-    <p class="text-5xl text-indigo-900">Events <br><strong class=" mt-4">45</strong></p>
+    <p class="text-5xl text-indigo-900">Events <br><strong class=" mt-4">{{$events}}</strong></p>
   </div>
   <div class="bg-white rounded-xl shadow-lg mx-6 px-6 py-4 w-4/12">
-    <p class="text-5xl text-indigo-900">Tickects Selled<br><strong class=" mt-4">79</strong></p>
+    <p class="text-5xl text-indigo-900">Reservation<br><strong class=" mt-4">{{$resers}}</strong></p>
   </div>
   <div class="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
-    <p class="text-5xl text-indigo-900">Our Clients <br><strong class=" mt-4">5</strong></p>
+    <p class="text-5xl text-indigo-900">Our Users <br><strong class=" mt-4">{{$users}}</strong></p>
   </div>
 </div>
 @endsection

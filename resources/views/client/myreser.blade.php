@@ -110,7 +110,13 @@ use Carbon\Carbon;
                     @if ($event->reservation->validated_at == null)
                     <button class="btn btn-outline btn-success" disabled>Votre Demande Est En Cours De Traitement</button>
                     @else
+                    @if ($event->date < Carbon::now())
+                    <button class="btn btn-outline btn-success" disabled>Cet Evenement A exipere</button>
+                        
+                    @else
+                        
                     <button class="btn btn-outline btn-accent"><a href="{{route('client.gentick',['id'=>$event->id])}}">Generer Le Ticket</a></button>
+                    @endif
                     @endif
                 </td>
             </tr>

@@ -7,6 +7,7 @@ use App\Models\Categorie;
 use App\Models\Client;
 use App\Models\Event;
 use App\Models\Organisateur;
+use App\Models\Reservation;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -21,8 +22,16 @@ class AdminController extends Controller
     
 
     public function dashboard(){
+        $counte = Event::all()->count();
+        $countu = User::all()->count();
+        $countr = Reservation::all()->count();
+        $countc = Categorie::all()->count();
         return view('admin.dashboard',[
-            'count'=>$this->count
+            'count'=>$this->count,
+            'events'=>$counte,
+            'users'=>$countu,
+            'cats'=>$countc,
+            'resers'=>$countr
         ]);
     }
     public function users(){
