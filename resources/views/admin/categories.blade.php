@@ -42,7 +42,9 @@
     {{ $cats->links() }}
 </div>
 
-
+<div class="text-ok hidden">
+    <h1>Le Contenu  n'existe pas</h1>
+</div>
 
 <div class="form hidden">
     <div class="bg-white border border-4 rounded-lg shadow relative m-10">
